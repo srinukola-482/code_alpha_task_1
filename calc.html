@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:lightblue;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.calculator{
+background:black;
+padding:20px;
+border-radius:10px;
+}
+
+#display{
+width:100%;
+height:50px;
+font-size:25px;
+text-align:right;
+margin-bottom:10px;
+padding:5px;
+}
+
+button{
+width:60px;
+height:50px;
+font-size:18px;
+margin:5px;
+border:none;
+border-radius:5px;
+}
+
+.number{
+background:blue;
+color:white;
+cursor:pointer;
+}
+
+.operator{
+background:pink;
+cursor:pointer;
+}
+
+.equal{
+background:yellow;
+width:105px;
+}
+
+.clear{
+background:red;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="calculator">
+
+<input type="text" id="display" readonly>
+
+<br>
+
+<button class="clear" onclick="clr()">C</button>
+<button onclick="back()">⌫</button>
+<button onclick="dis('%')">%</button>
+<button class="operator" onclick="dis('/')">/</button>
+
+<br>
+
+<button class="number" onclick="dis('7')">7</button>
+<button class="number" onclick="dis('8')">8</button>
+<button class="number" onclick="dis('9')">9</button>
+<button class="operator" onclick="dis('*')">*</button>
+
+<br>
+
+<button class="number" onclick="dis('4')">4</button>
+<button class="number" onclick="dis('5')">5</button>
+<button class="number" onclick="dis('6')">6</button>
+<button class="operator" onclick="dis('-')">-</button>
+
+<br>
+
+<button class="number" onclick="dis('1')">1</button>
+<button class="number" onclick="dis('2')">2</button>
+<button class="number" onclick="dis('3')">3</button>
+<button class="operator" onclick="dis('+')">+</button>
+
+<br>
+
+<button class="number" onclick="dis('0')">0</button>
+<button onclick="dis('.')">.</button>
+<button class="equal" onclick="solve()">=</button>
+
+</div>
+
+<script>
+
+function dis(val){
+document.getElementById("display").value+=val;
+}
+
+function solve(){
+let x=document.getElementById("display").value;
+let y=eval(x);
+document.getElementById("display").value=y;
+}
+
+function clr(){
+document.getElementById("display").value="";
+}
+
+function back(){
+let x=document.getElementById("display").value;
+document.getElementById("display").value=x.slice(0,-1);
+}
+
+</script>
+
+</body>
+</html>
